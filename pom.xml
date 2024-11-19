@@ -28,7 +28,7 @@
     </developers>
 
     <scm>
-        <url>https://github.com/mazhilin/boyun-cloud-dependencies</url>
+        <url>https://github.com/mazhilin/digital-smart-dependencies</url>
     </scm>
 
     <properties>
@@ -48,7 +48,7 @@
         <spring-boot.version>2.7.18</spring-boot.version>
         <lombok.version>1.18.20</lombok.version>
         <mapstruct.version>1.5.0.Beta1</mapstruct.version>
-        <boyun-cloud.version>0.0.1-SNAPSHOT</boyun-cloud.version>
+        <digital-smart.version>0.0.1-SNAPSHOT</digital-smart.version>
 
         <!--Maven Base plugins-->
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
@@ -64,11 +64,6 @@
         <springcloud-maven-plugin.version>1.0.0</springcloud-maven-plugin.version>
 
     </properties>
-
-
-    <modules>
-        <module>boyun-cloud-starter-parent</module>
-    </modules>
 
     <build>
         <!--project maven management 只做定义不引用-->
