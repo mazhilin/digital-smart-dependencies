@@ -65,6 +65,10 @@
 
     </properties>
 
+    <modules>
+        <module>digital-smart-starter-parent</module>
+    </modules>
+
     <build>
         <!--project maven management 只做定义不引用-->
         <pluginManagement>
