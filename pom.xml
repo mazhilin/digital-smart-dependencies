@@ -216,7 +216,7 @@
                                 <artifactId>lombok</artifactId>
                             </exclude>
                         </excludes>
-                        <finalName>${project.artifactId}-${project.version}</finalName>
+                        <finalName>${project.artifactId}</finalName>
                     </configuration>
                     <executions>
                         <execution>

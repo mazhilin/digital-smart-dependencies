@@ -16,10 +16,9 @@
     <packaging>jar</packaging>
 
     <properties>
-
+        <digital-smart.version>0.0.1-SNAPSHOT</digital-smart.version>
         <spring-cloud.version>2021.0.5.0</spring-cloud.version>
         <spring-framework.version>5.3.31</spring-framework.version>
-
 
         <spring-boot-dozer.version>6.5.2</spring-boot-dozer.version>
         <spring-boot-mybatis.version>2.3.2</spring-boot-mybatis.version>
@@ -134,46 +133,49 @@
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}-${project.version}</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <finalName>${project.artifactId}-${project.version}</finalName>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>group.springframework.plugin</groupId>
-                <artifactId>spring-cloud-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>flatten-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-
+        <finalName>${artifactId}</finalName>
         <resources>
             <resource>
-                <directory>src/main/java</directory>
+                <directory>${basedir}/src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
                     <include>**/*.properties</include>
                     <include>**/*.xml</include>
+                    <include>**/application*.yml</include>
+                    <include>**/application*.yaml</include>
+                    <include>**/application*.properties</include>
                 </includes>
             </resource>
             <resource>
-                <directory>src/main/resources</directory>
+                <directory>${basedir}/src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
                     <include>**/*</include>
                 </includes>
             </resource>
         </resources>
+        <plugins>
+            <!--避免和parent bom坐标不一致 -->
+            <plugin>
+                <groupId>group.springframework.plugin</groupId>
+                <artifactId>spring-cloud-maven-plugin</artifactId>
+            </plugin>
+            <!--避免和parent bom坐标不一致 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!-- nothing to do, but we need this to run docker:build form project root -->
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+            </plugin>
+            <!--代码格式插件，默认使用spring 规则-->
+            <plugin>
+                <groupId>io.spring.javaformat</groupId>
+                <artifactId>spring-javaformat-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 
 </project>
